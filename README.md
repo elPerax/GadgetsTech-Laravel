@@ -1,78 +1,109 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+#  GadgetsTech – Laravel E-Commerce Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern **mini e-commerce web application** built with **Laravel** and **MySQL**, designed to sell custom **tech gadgets**.  
+The platform supports full product management, shopping cart functionality, secure checkout, and an AJAX-powered live search for an interactive user experience.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+##  Overview
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**GadgetsTech** is a Laravel-based CRUD web application that simulates a small online store.  
+It was developed to practice **MVC design**, **database management**, and **frontend-backend integration** using **Blade, Bootstrap**, and **AJAX**.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Visitors can browse gadgets, registered users can place orders, and admins can manage products and monitor all incoming orders.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+##  Core Features
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+###  Product Management (CRUD)
+- Add, edit, delete, and view products with fields:
+  - `name`, `category`, `description`, `price`, `stock`, and `image`.
+- Image upload and display handled with Laravel’s storage system.
+- Only authenticated admins can access product management routes.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+###  Authentication System
+- Implemented with **Laravel Breeze / UI**.
+- Role-based access for `admin` and `customer`.
+- Secure session handling and CSRF protection.
 
-## Laravel Sponsors
+###  Shopping Cart
+- Session-based cart system with quantity updates and item removal.
+- Cart summary and dynamic total calculation.
+- Clear layout using **Bootstrap cards** and modals.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+###  Order Placement
+- Checkout form collects:
+  - Customer name, email, address, payment method.
+- Orders saved with relational tables (`orders`, `order_items`, `users`).
+- Confirmation email sent upon order placement.
 
-### Premium Partners
+###  Admin Dashboard
+- View all orders with customer info and ordered items.
+- Order status tracking (e.g., pending, shipped).
+- Pagination for large order lists.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+###  AJAX Live Search
+- Real-time product filtering by **name** or **category**.
+- Implemented with `axios` and Laravel JSON endpoints.
+- Updates product cards instantly without reloading the page.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+##  Bonus Enhancements
+-  Pagination for both user product list and admin order table.  
+-  Stock reduction after checkout.  
+-  Form validation using Laravel’s `Request` class.  
+-  Image uploads using Laravel Filesystem.  
+-  Clean UI with Material Design Bootstrap (MDB).  
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+##  Technologies Used
 
-## Security Vulnerabilities
+| Category | Tool / Framework |
+|-----------|------------------|
+| Backend | Laravel 11 (PHP 8.2) |
+| Frontend | Blade, Bootstrap 5, MDB UI Kit |
+| Database | MySQL |
+| AJAX | Axios / jQuery |
+| Auth | Laravel Breeze / UI |
+| Mail | Laravel Mailer |
+| Deployment | Localhost (XAMPP / Artisan Serve) |
+| Version Control | Git + GitHub |
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+##  Database Structure
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Tables:**
+- `users` – stores admin and customer accounts  
+- `products` – gadget data  
+- `orders` – main order info (customer, total, date)  
+- `order_items` – details of each product in an order  
 
+All models are connected using **Eloquent ORM** with proper relationships (`hasMany`, `belongsTo`).
 
-# # 🚀 This stops XAMPP, restarts it, enters your Laravel project, runs the backend, and startsVite
+---
 
-cd /opt/lampp/htdocs/candyStore 
-sudo /opt/lampp/lampp start
-npm run dev
+##  How to Run Locally
+
+```bash
+# 1️) Clone the repository
+git clone https://github.com/<your-username>/GadgetsTech.git
+cd GadgetsTech
+
+# 2️) Install dependencies
+composer install
+npm install && npm run dev
+
+# 3️) Set up environment
+cp .env.example .env
+php artisan key:generate
+
+# 4️) Configure database (MySQL)
+# Update DB_DATABASE, DB_USERNAME, DB_PASSWORD in .env
+php artisan migrate --seed
+
+# 5️) Start the app
 php artisan serve
-http://localhost/candyStore/public/
-http://localhost/candyStore/public/products
-http://localhost/phpmyadmin/index.php?route=/database/structure&db=candy_store
-sudo /opt/lampp/lampp stop 
