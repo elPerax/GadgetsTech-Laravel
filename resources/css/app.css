@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #ffe6f0;
+    font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+    color: #ff4d6d;
+}
+
+button, .btn {
+    background-color: #ff4d6d;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+button:hover, .btn:hover {
+    background-color: #ff1f4b;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ffccd5;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
